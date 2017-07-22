@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+
+# Greps the `title' tag of the HTML returned for a list of websites
+#
+# Input file for urls
+#
+
+urlsFile='urls'
+titlesFile='titles'
+
+
+while read line;
+do
+
+  curl -L $line | grep -o '<title>.*</title>' |
+  sed 's/^.\{7\}//' |
+  sed 's/.\{8\}$//' >> $titlesFile
+
+  printf "%s\n" $line >> $titlesFile
+done < $urlsFile

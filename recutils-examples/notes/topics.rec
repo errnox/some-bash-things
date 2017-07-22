@@ -1,0 +1,58 @@
+%rec: Topic
+%type: ID int
+%type: Name size 255
+%type: Description size 6400
+%type: Importance int
+%key: ID
+%auto: ID
+%mandatory: ID Name Description Importance
+
+ID: 0
+Name: Topic name #1894
+Description: Topic description #15023
+Importance: 3
+
+ID: 1
+Name: Topic name #25132
+Description: Topic description #26769
+Importance: 3
+
+ID: 2
+Name: Topic name #5604
+Description: Topic description #12826
+Importance: 3
+
+ID: 3
+Name: Topic name #32759
+Description: Topic description #16708
+Importance: 3
+
+ID: 4
+Name: Topic name #6307
+Description: Topic description #5222
+Importance: 3
+
+ID: 5
+Name: Topic name #29999
+Description: Topic description #1398
+Importance: 3
+
+ID: 6
+Name: Topic name #15967
+Description: Topic description #30773
+Importance: 3
+
+ID: 7
+Name: Topic name #5424
+Description: Topic description #16397
+Importance: 3
+
+ID: 8
+Name: Topic name #15377
+Description: Topic description #8392
+Importance: 3
+
+ID: 9
+Name: Topic name #19475
+Description: Topic description #6860
+Importance: 3

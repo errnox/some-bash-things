@@ -1,0 +1,64 @@
+#!/usr/bin/env bash
+#
+# Build a traffic report using `vnstati' and write it to `index.html' in
+# the current working directory. The `index.html' file is self-contained
+# and can be served on a web server or opened locally in a web browser.
+
+
+inf='eth0'
+vnstat='./assets'
+
+summary=$(vnstati -s -nh -i $inf -o - | base64)
+hours=$(vnstati -h -nh -i $inf -o - | base64)
+days=$(vnstati -d -nh -i $inf -o - | base64)
+months=$(vnstati -m -nh -i $inf -o - | base64)
+top10=$(vnstati -t -nh -i $inf -o - | base64)
+
+cat > index.html <<TEMPLATE
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Traffic Statistics</title>
+    <meta charset="utf-8" />
+    <style type="text/css" media="screen">
+      body {
+        pdding: 20px;
+        background: #EEEEEE;
+      }
+
+      img {
+        margin-bottom: 10px;
+        max-width: 100%;
+        height: auto;
+      }
+
+      .mainContent {
+        width: 500px;
+        margin: auto;
+      }
+    </style>
+  </head>
+  
+  <body>
+
+    <div class="mainContent">
+      <strong>Summary</strong>
+      <img src="data:image/png;base64,$summary" alt="Summary"/>
+
+      <strong>Hours</strong>
+      <img src="data:image/png;base64,$hours" alt="Hours" />
+
+      <strong>Days</strong>
+      <img src="data:image/png;base64,$days" alt="Days" />
+
+      <strong>Months</strong>
+      <img src="data:image/png;base64,$months" alt="Months" />
+
+      <strong>Top 10</strong>
+      <img src="data:image/png;base64,$top10" alt="Top 10" />
+    </div>
+
+  </body>
+</html>
+
+TEMPLATE

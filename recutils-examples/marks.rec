@@ -1,0 +1,52 @@
+%rec: Mark
+%type: Class enum A B C
+%type: Score real
+%sort: Class
+%mandatory: Name Class Score
+%type: Class size 1
+%type: Score real
+%unique: Name Class Score
+%key: ID
+
+
+ID: 1
+Name: Mr. Four
+Class: A
+Score: 2.1
+Completed: false
+
+ID: 2
+Name: Mr. Two
+Class: A
+Score: 6.9
+Completed: true
+
+ID: 3
+Name: Mr. Three
+Class: B
+Score: 9.2
+Completed: true
+
+ID: 4
+Name: Mr. Five
+Class: C
+Score: 4
+Completed: true
+
+ID: 5
+Name: Mr. One
+Class: C
+Score: 6.8
+Completed: true
+
+ID: 6
+Name: Mr. Smith
+Class: A
+Score: 1.23
+Completed: false
+
+ID: 7
+Name: Mr. Miller
+Class: A
+Score: 1.23
+Completed: false

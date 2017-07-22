@@ -1,0 +1,46 @@
+# -*- mode: rec -*-
+
+%rec: Item
+
+
+Type: EC Car
+Category: Toy
+Price: 12.2
+LastSell: 20-April-2012
+Available: 623
+
+Type: Amazing Terrias
+Category: Food
+Price: 0.65
+LastSell: 22-April-2012
+Available: 8239
+
+Type: Great Typexes
+Category: Office
+Price: 1.20
+LastSell: 22-April-2012
+Available: 10878
+
+Type: Notebook
+Category: Office
+Price: 1.00
+LastSell: 21-April-2012
+Available: 77455
+
+Type: Sexy Puzzle
+Category: Toy
+Price: 6.20
+LastSell: 21-April-2012
+Available: 12
+
+Type: Unbelievable Thing
+Category: Electronics
+Price: 15.89
+LastSell: 4
+Available: 90
+
+Type: Incredible Gadget
+Category: Toy
+Price: 3.30
+LastSell: 11-May-2012
+Available: 23

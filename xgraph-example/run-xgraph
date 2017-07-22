@@ -1,0 +1,3 @@
+#! /usr/bin/env bash
+
+xgraph -bg "black" -fg "white" -m $*

@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+
+
+# Usage
+#
+#
+# ./stepper <file> <outdir>
+
+
+# Args
+file=$1
+outDir=$2
+
+# Make the directory in case it does not exist yet
+mkdir -p $outDir
+
+# Counter for file names
+counter=0;
+
+git log --pretty=format:'%H' | while read line;
+do
+    # Increment the counter
+    ((counter++))
+    # Write the file for the specified revision
+    git show $line:$file | cat >> $outDir/$file.$counter;
+done

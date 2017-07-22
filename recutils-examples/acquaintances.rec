@@ -1,0 +1,37 @@
+%type: Acquaintance
+
+
+Name: Alfred Nebel
+Dob: 20 April 2010
+Email: alf@example.com
+Address: 42 Abbeter Way, Inprooving, WORCS
+Telephone: 01234 5676789
+
+Name: Mandy Nebel
+Dob: 21 February 1972
+Email: mandy@example.com
+Address: 42 Abbeter Way, Inprooving, WORCS
+Telephone: 01234 5676789
+
+Name: Bertram Nebel
+Dob: 3 January 1966
+Email: bert@example.com
+Address: 42 Abbeter Way, Inprooving, WORCS
+Telephone: 01234 5676789
+
+Name: Charles Spencer
+Dob: 4 July 1997
+Email: charlie@example.com
+Address: 2 Serpe Rise, Little Worning, SURREY
+Telephone: 09876 5432109
+
+ Name: Dirk Spencer
+Dob: 29 June 1945
+Email: dirk@example.com
+Address: 2 Serpe Rise, Little Worning, SURREY
+Telephone: 09876 5432109
+
+Name: Ernest Wright
+Dob: 26 April 1978
+Email: ernie@example.com
+Address: 1 Wanter Rise, Greater Inncombe, BUCKS

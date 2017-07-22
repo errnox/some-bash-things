@@ -1,0 +1,71 @@
+#!/usr/bin/env bash
+
+
+# Usage
+#
+#
+# ./autocommit <dir>
+
+
+# Args
+$dir=$1
+file=$2
+outDir=$3
+
+# Watch all files in the specified directory and issue a git commit on any
+# change
+function autocommit () {
+    inotifywait -q -m -r --exclude '.git' --timefmt "%a%d%b%Y%T%" --format='git add $dir; git commit -m "Autocommit on change\nFile:   %w\Cause:  %f\nEvents: %e\nTime:   %T"' $dir | bash;
+}
+
+autocommit;
+
+# Create a output directory and write all revisions for the specified file
+# there. Each file is suffixed with the character `.' and an consecutive
+# integer corresponding to the nth change to this file. The numbering is
+# 1-based.
+#
+# Example:
+#
+#   ./out/file.txt.1
+#   ./out/file.txt.2
+#   ./out/file.txt.3
+#   ./out/file.txt.4
+#   ./out/file.txt.5
+#   ./out/file.txt.6
+#   ./out/file.txt.7
+#
+#     ...
+#
+#   ./out/file.txt.114
+#   ./out/file.txt.115
+#   ./out/file.txt.116
+#   ./out/file.txt.117
+#   ./out/file.txt.118
+#
+function step () {
+    # Make the directory in case it does not exist yet
+    mkdir -p $outDir
+
+    # Counter for file names
+    counter=0;
+
+    git log --pretty=format:'%H' | while read line;
+    do
+    # Increment the counter
+        ((counter++))
+    # Write the file for the specified revision
+        git show $line:$file | cat >> $outDir/$file.$counter;
+    done
+}
+
+# Return a sorted list of file names in the output directory in increasing
+# order (newest revision last).
+function history () {
+    ls $outDir | sort -n -t '.' -k 3 | less
+}
+
+# Watch the last few commits roll in live. Can be aborted with a SIGINT.
+function watch () {
+    while true; do clear; git log | head -n 30; done
+}

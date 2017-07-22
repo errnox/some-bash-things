@@ -1,0 +1,22 @@
+# Date of Birth
+%type: Person
+
+Name: Alfred Nebel
+Dob: 20 April 2010
+Email: alf@example.com
+
+Name: Bertram Worcester
+Dob: 3 January 1966
+Email: bert@example.com
+
+Name: Charles Spencer
+Dob: 4 July 1997
+Email: charlie@example.com
+
+Name: Dirk Hogart
+Dob: 29 June 1945
+Email: dirk@example.com
+
+Name: Ernest Wright
+Dob: 26 April 1978
+Email: ernie@example.com

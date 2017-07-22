@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+
+for file in "$@";
+do
+  mkdir -p "$(dirname "$file")";
+  touch "$file";
+  for (( i=0; i<10; i++ ));
+  do
+    printf "This is default text line %s in file \`%s\'.\n" "$i" "$file" >> "$file";
+  done
+done

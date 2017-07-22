@@ -1,0 +1,13 @@
+%rec: Residence
+%key: Id
+
+Address: 42 Abbeter Way, Inprooving, WORCS
+Telephone: 01234 5676789
+Id: 42AbbeterWay
+
+Address: 2 Serpe Rise, Little Worning, SURREY
+Telephone: 09876 5432109
+Id: 2SerpeRise
+
+Address: 1 Wanter Rise, Greater Inncombe, BUCKS
+Id: ChezGrampa

@@ -1,0 +1,112 @@
+#! /usr/bin/env bash
+
+#---------------------------------------------------------------------------
+# Select records
+#
+# recsel -t "Mark" -P "Name,Score" marks.rec
+
+
+#---------------------------------------------------------------------------
+# Set field values
+#
+# recset -t "Mark" -e "Completed = 'yes'" -f "Completed" -s "true" marks.rec
+# recset -t "Mark" -e "Completed = 'true'" -f "Completed" -s "yes" marks.rec
+
+
+#---------------------------------------------------------------------------
+# Add/remove fields
+#
+# recset -t "Mark" -f "Something" -a "Something else" marks.rec
+# recset -t "Mark" -f "Something" -d marks.rec
+
+
+#---------------------------------------------------------------------------
+# Add an ID field
+#
+# recset -t "Mark" -f "ID" -a "1" marks.rec
+
+
+#---------------------------------------------------------------------------
+# Show some item info (ONLY IN NEWER VERSIONS!)
+#
+# recsel -t "Item" -P "Category" items.rec
+
+
+#---------------------------------------------------------------------------
+# Sort items
+#
+# recsel -t "Item" -S "Category" -p "Category" items.rec
+
+
+#---------------------------------------------------------------------------
+# Aggregation (ONLY IN NEWER VERSIONS!)
+#
+# recsel -t "Item" -p "Count(Category)" items.rec
+
+
+#---------------------------------------------------------------------------
+# Foreign keys
+#
+# recsel -t "Person" -p "Abode" ./people/people.rec
+
+
+#---------------------------------------------------------------------------
+# Auto-counter
+#
+# Generate notes
+# for ((i=0; i<10; i++))
+# do
+#   recins -t "Note" \
+#     -f "Description" -v "Test description #"$RANDOM \
+#     -f "Content" -v "Test content #"$RANDOM \
+#     -f "Topic" -v "1" \
+#     ./notes/notes.rec
+# done
+
+# Generate topics
+# for ((i=0; i<10; i++))
+# do
+#   recins -t "Topic" \
+#     -f "Name" -v "Topic name #"$RANDOM \
+#     -f "Description" -v "Topic description #"$RANDOM \
+#     -f "Importance" -v "3" \
+#     ./notes/topics.rec
+# done
+
+# Select a random Topic ID
+# recsel -t 'Topic' --random=1 -P 'ID' ./notes/topics.rec
+
+# recsel -t "Note" -e "Topic = 3" -p "Description,Topic" ./notes/notes.rec;
+
+# recins -t "Note" \
+#   -f "Description" -v "" \
+#   -f "Content" -v "" \
+#   -f "Topic" -v "" \
+#   notes/notes.rec
+
+# recins -t "Note" \
+#   -f "Description" -v "Great Note" \
+#   -f "Content" -v "This is a great note." \
+#   -f "Topic" -v "7" \
+#   notes/notes.rec
+
+#---------------------------------------------------------------------------
+# Insert by opening a text editor.
+
+zenityCommand="zDescription=''\n\
+zContent=''\n\
+zTopic=''\n"
+
+command=$(printf "$zenityCommand" | vipe);
+
+eval "$command";
+
+recins -t "Note" \
+  -f "Description" -v "$zDescription" \
+  -f "Content" -v "$zContent" \
+  -f "Topic" -v "$zTopic" \
+  notes/notes.rec;
+
+# printf "Description: $zDescription\n\
+# Content: $zContent \n\
+# Topic: $zTopic\n"

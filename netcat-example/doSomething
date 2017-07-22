@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+
+while read input;
+do
+  printf "Output: %s\n=== END OF OUTPUT ===\n" $input;
+done
